@@ -1,538 +1,559 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeisson Huerfano Daza - CV Full-Stack</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 20px auto;
-            background: white;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: 300;
-        }
-
-        .header h2 {
-            font-size: 1.3em;
-            margin-bottom: 20px;
-            font-weight: 300;
-            opacity: 0.9;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
-        .contact-info a {
-            color: white;
-            text-decoration: none;
-            padding: 8px 16px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 20px;
-            transition: all 0.3s ease;
-            font-size: 0.9em;
-        }
-
-        .contact-info a:hover {
-            background: rgba(255,255,255,0.3);
-            transform: translateY(-2px);
-        }
-
-        .content {
-            padding: 40px;
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section h3 {
-            color: #667eea;
-            font-size: 1.4em;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #667eea;
-            padding-bottom: 10px;
-        }
-
-        .profile-summary {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            border-left: 4px solid #667eea;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-
-        .skill-category {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #764ba2;
-        }
-
-        .skill-category h4 {
-            color: #764ba2;
-            margin-bottom: 15px;
-            font-size: 1.1em;
-        }
-
-        .skill-category ul {
-            list-style: none;
-        }
-
-        .skill-category li {
-            padding: 5px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .skill-category li:last-child {
-            border-bottom: none;
-        }
-
-        .experience-item {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            border-left: 4px solid #667eea;
-        }
-
-        .experience-item h4 {
-            color: #667eea;
-            font-size: 1.2em;
-            margin-bottom: 5px;
-        }
-
-        .experience-item .company {
-            color: #764ba2;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .experience-item .period {
-            color: #666;
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
-        .experience-item ul {
-            list-style: none;
-        }
-
-        .experience-item li {
-            padding: 8px 0;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .experience-item li:before {
-            content: "▸";
-            color: #667eea;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        .competencies {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .competency-item {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #764ba2;
-        }
-
-        .competency-item h4 {
-            color: #764ba2;
-            margin-bottom: 10px;
-        }
-
-        .education-item {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            border-left: 4px solid #667eea;
-        }
-
-        .education-item h4 {
-            color: #667eea;
-            margin-bottom: 5px;
-        }
-
-        .education-item .institution {
-            color: #764ba2;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .education-item .year {
-            color: #666;
-            font-style: italic;
-        }
-
-        .certifications {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .cert-item {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            border-left: 4px solid #764ba2;
-        }
-
-        .cert-year {
-            color: #667eea;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .print-button {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 15px 20px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 16px;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-            transition: all 0.3s ease;
-        }
-
-        .print-button:hover {
-            background: #764ba2;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
-        }
-
-        @media print {
-            body {
-                background: white;
-                font-size: 12px;
-            }
-            
-            .container {
-                box-shadow: none;
-                margin: 0;
-                border-radius: 0;
-            }
-            
-            .header {
-                background: #667eea !important;
-                -webkit-print-color-adjust: exact;
-            }
-            
-            .print-button {
-                display: none;
-            }
-            
-            .section {
-                margin-bottom: 25px;
-            }
-            
-            .experience-item,
-            .skill-category,
-            .education-item {
-                margin-bottom: 15px;
-                padding: 15px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                margin: 10px;
-                border-radius: 0;
-            }
-            
-            .header {
-                padding: 30px 20px;
-            }
-            
-            .header h1 {
-                font-size: 2em;
-            }
-            
-            .content {
-                padding: 20px;
-            }
-            
-            .contact-info {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Jeisson Huerfano Daza | CV Full-Stack</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css'>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.4.1/paper.min.css'>
+  <style>
+    @font-face {
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      src: local('Open Sans Regular'), local('OpenSans-Regular'), url("https://fonts.gstatic.com/s/opensans/v16/mem8YaGs126MiZpBA-UFVZ0b.woff2") format('woff2');
+    }
+    @font-face {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      src: local('Roboto'), local('Roboto-Regular'), url("https://fonts.gstatic.com/s/roboto/v19/KFOmCnqEu92Fr1Mu4mxK.woff2") format('woff2');
+    }
+    @page {
+      size: A4;
+    }
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      background-color: #fff;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 300;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .btn-print {
+      z-index: 1;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+    }
+    .resume {
+      display: block;
+      font-family: 'Roboto', sans-serif;
+      font-size: 13.0736px;
+      font-weight: 400;
+      line-height: 1.5;
+      min-height: auto;
+      width: 100%;
+    }
+    .resume h1 {
+      font-size: 2.86em;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+    }
+    .resume h2 {
+      font-size: 1.43em;
+      font-weight: 600;
+      line-height: 1;
+      margin-bottom: 0;
+    }
+    .resume p {
+      margin-bottom: 1em;
+    }
+    .resume p:last-child {
+      margin-bottom: 0;
+    }
+    .resume ul {
+      padding-left: 20px;
+    }
+    .resume .resume__header,
+    .resume .resume__section {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.95em;
+    }
+    .resume .resume__header {
+      padding: 6em 4em 0;
+    }
+    .resume .resume__section {
+      margin-bottom: 4em;
+    }
+    .resume .resume__section:last-child {
+      padding-bottom: 0;
+    }
+    .resume .resume__section-title {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.43em;
+    }
+    .resume .resume__section-title > i {
+      margin-right: 0.63em;
+      font-size: 1.14em;
+      background-color: #5695cd;
+      color: #fff;
+      border: 0.25em solid #aacae6;
+      border-radius: 50%;
+      width: 2.51em;
+      height: 2.51em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1.6;
+    }
+    .resume .resume__section-title > h2 {
+      margin-top: 0;
+      font-size: 1.5em;
+    }
+    .resume .resume__columns {
+      overflow: hidden;
+      padding: 4em;
+      padding-top: 0;
+    }
+    .resume .resume__main {
+      float: left;
+      width: 75%;
+      padding-right: 6em;
+    }
+    .resume .resume__side {
+      float: left;
+      width: 25%;
+    }
+    .resume .other-info p > b {
+      color: #555;
+    }
+    .resume .info-item {
+      margin-bottom: 0.2em;
+      font-weight: 300;
+    }
+    .resume .info-item:last-child {
+      margin-bottom: 0;
+    }
+    .resume .info-label {
+      display: inline-block;
+      padding-right: 0.63em;
+      font-size: 1.14em;
+      min-width: 2.19em;
+      text-align: center;
+    }
+    .resume .info-label i {
+      color: #5695cd;
+    }
+    .resume .xp-item {
+      margin-bottom: 4em;
+    }
+    .resume .xp-item:last-child {
+      margin-bottom: 0;
+    }
+    .resume .xp-job {
+      font-size: 1.14em;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+    .resume .xp-job span,
+    .resume .xp-job small {
+      font-weight: 400;
+    }
+    .resume .xp-job small {
+      font-size: 0.9em;
+    }
+    .resume .xp-date {
+      font-size: 0.8em;
+      margin-top: 0.3em;
+      margin-bottom: 1em;
+      color: #5695cd;
+    }
+    .resume .extra {
+      margin-bottom: 2em;
+    }
+    .resume .extra:last-child {
+      margin-bottom: 0;
+    }
+    .resume .extra-info small {
+      color: #666;
+      display: inline-block;
+      font-size: 0.7em;
+    }
+    .resume .extra-details,
+    .resume .extra-details__progress {
+      border-radius: 6px;
+    }
+    .resume .extra-details {
+      margin-top: 0.5em;
+      background-color: #d1d9e1;
+      width: 100%;
+      height: 5px;
+      position: relative;
+    }
+    .resume .extra-details__progress {
+      background-color: #5695cd;
+      height: 5px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .resume .lang-item {
+      margin-bottom: 2em;
+    }
+    .resume .lang-item:last-child {
+      margin-bottom: 0;
+    }
+    .resume .lang-label {
+      width: 8em;
+    }
+    .sheet {
+      min-height: auto !important;
+      height: auto !important;
+    }
+    @media print {
+      body {
+        min-width: initial !important;
+      }
+      .btn-print {
+        display: none;
+      }
+      .sheet {
+        min-height: auto !important;
+        height: auto !important;
+        overflow: visible !important;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Jeisson Huerfano Daza</h1>
-            <h2>Desarrollador Full-Stack Senior</h2>
-            <div class="contact-info">
-                <a href="mailto:fricred@gmail.com">📧 fricred@gmail.com</a>
-                <a href="tel:+573508282268">📞 +57 350 828 2268</a>
-                <a href="https://www.linkedin.com/in/ianmoone/" target="_blank">🔗 LinkedIn</a>
-                <a href="https://github.com/fricred" target="_blank">💻 GitHub</a>
-                <a href="https://softwarebuilders.co/sb/" target="_blank">🌐 Portfolio</a>
+  <html>
+    <head></head>
+    <body class="A4">
+      <div class="sheet" style="min-height: auto; height: auto; overflow: visible;">
+        <button class="btn btn-print btn-sm btn-light" id="print" onclick="window.print()">
+          <i class="fa fa-print"></i>
+          Imprimir
+        </button>
+        <div class="two-column resume">
+          <section class="resume__section resume__header">
+            <div class="resume__content">
+              <h1>Jeisson Huerfano Daza</h1>
+              <div class="info-item">
+                <span class="info-label"><i class="fa fa-location-arrow"></i></span>
+                <span class="info-text">Bogotá, Colombia</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label"><i class="fa fa-envelope"></i></span>
+                <span class="info-text">fricred@gmail.com</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label"><i class="fa fa-phone"></i></span>
+                <span class="info-text">+57 350 828 2268</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label"><i class="fa fa-linkedin"></i></span>
+                <span class="info-text">linkedin.com/in/ianmoone</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label"><i class="fa fa-github"></i></span>
+                <span class="info-text">github.com/fricred</span>
+              </div>
             </div>
-        </div>
-
-        <div class="content">
-            <div class="section">
-                <div class="profile-summary">
-                    <h3>Perfil Profesional</h3>
-                    <p>Desarrollador full-stack experimentado con más de <strong>15 años de experiencia</strong> práctica especializado en desarrollo de aplicaciones móviles nativas para Android (Java) e iOS (Swift/Objective-C), así como desarrollo multiplataforma con React Native y Flutter. Amplia experiencia en sistemas Cliente-Servidor, Web y tecnologías de IA, utilizando principalmente Java/J2EE, Python, React/React Native, NestJS y tecnologías de Inteligencia Artificial.</p>
-                    
-                    <div style="margin-top: 20px;">
-                        <strong>Competencias Principales:</strong>
-                        <ul style="margin-top: 10px; list-style: none;">
-                            <li>• Líder técnico con 8+ años de experiencia en liderazgo desde 2015</li>
-                            <li>• Especialista en metodologías ágiles (Scrum, Kanban)</li>
-                            <li>• Arquitecto de soluciones cloud (AWS, Google Cloud Platform)</li>
-                            <li>• Experto en desarrollo móvil nativo y multiplataforma</li>
-                            <li>• Fluent en Español (nativo) e Inglés (intermedio)</li>
-                        </ul>
+          </section>
+          <div class="resume__columns">
+            <div class="resume__main">
+              <section class="resume__section resume__summary">
+                <div class="resume__content">
+                  <div class="resume__section-title">
+                    <i class="fa fa-pencil-square-o"></i>
+                    <h2>Resumen Profesional</h2>
+                  </div>
+                  <div class="other">
+                    <div class="other-info">
+                      <p>
+                        <b>Desarrollador full-stack experimentado</b> con más de 15 años de experiencia práctica especializado en desarrollo de aplicaciones móviles nativas para Android (Java) e iOS (Swift/Objective-C), así como desarrollo multiplataforma con React Native y Flutter.
+                      </p>
+                      <p>
+                        Amplia experiencia en sistemas Cliente-Servidor, Web y tecnologías de IA, utilizando principalmente Java/J2EE, Python, React/React Native, NestJS y tecnologías de Inteligencia Artificial con <b>8+ años de experiencia en liderazgo técnico</b> desde 2015.
+                      </p>
                     </div>
+                  </div>
                 </div>
-            </div>
-
-            <div class="section">
-                <h3>Habilidades Técnicas</h3>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h4>Desarrollo Móvil</h4>
-                        <ul>
-                            <li><strong>Android:</strong> Java, Kotlin, Android SDK, Android Studio</li>
-                            <li><strong>iOS:</strong> Swift, Objective-C, Xcode, iOS SDK</li>
-                            <li><strong>Multiplataforma:</strong> React Native, Flutter, NativeScript</li>
-                            <li><strong>Publicación:</strong> Google Play Store, Apple App Store</li>
-                        </ul>
+              </section>
+              <section class="resume__section resume__experience">
+                <div class="resume__content">
+                  <div class="resume__section-title">
+                    <i class="fa fa-briefcase"></i>
+                    <h2>Experiencia Profesional</h2>
+                  </div>
+                  <div class="xp-item">
+                    <div class="xp-job">
+                      VP de Tecnología y Desarrollador Senior
+                      <span>@ Banana Script</span><br/><small>Bogotá, Colombia</small>
                     </div>
-                    
-                    <div class="skill-category">
-                        <h4>Backend</h4>
-                        <ul>
-                            <li><strong>Java/J2EE:</strong> Spring Boot, Hibernate, Microservicios</li>
-                            <li><strong>Python:</strong> Django, Flask, FastAPI, Machine Learning</li>
-                            <li><strong>Node.js:</strong> Express.js, NestJS, REST APIs</li>
-                            <li><strong>PHP:</strong> Laravel, Symfony</li>
-                            <li><strong>C#/.NET:</strong> ASP.NET Core, Entity Framework</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h4>Frontend</h4>
-                        <ul>
-                            <li><strong>JavaScript/TypeScript:</strong> React, Angular, Vue.js</li>
-                            <li><strong>Mobile:</strong> React Native, Flutter, Ionic</li>
-                            <li><strong>Web:</strong> HTML5, CSS3, SASS, Webpack</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h4>DevOps y Cloud</h4>
-                        <ul>
-                            <li><strong>AWS:</strong> Lambda, API Gateway, ECS, Fargate, S3</li>
-                            <li><strong>Google Cloud:</strong> Firebase, Cloud Functions, Cloud ML</li>
-                            <li><strong>Containerización:</strong> Docker, Kubernetes</li>
-                            <li><strong>CI/CD:</strong> Jenkins, GitHub Actions, AWS CodePipeline</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h3>Experiencia Profesional</h3>
-                
-                <div class="experience-item">
-                    <h4>VP de Tecnología y Desarrollador Senior</h4>
-                    <div class="company">Banana Script</div>
-                    <div class="period">Julio 2023 – Presente</div>
-                    <ul>
-                        <li>Lideré el desarrollo de <strong>Viernes.ai</strong>, plataforma de IA conversacional 24/7 con procesamiento de lenguaje natural</li>
+                    <div class="xp-date">Jul. 2023 – Presente</div>
+                    <div class="xp-detail">
+                      <ul>
+                        <li>Lideré el desarrollo de <b>Viernes.ai</b>, plataforma de IA conversacional 24/7 con procesamiento de lenguaje natural</li>
                         <li>Desarrollé aplicaciones React Native para iOS/Android y React para web</li>
                         <li>Implementé backend en Python con APIs NestJS en arquitectura multi-cloud (AWS + GCP)</li>
                         <li>Gestioné infraestructura cloud con AWS Lambda, API Gateway, DynamoDB y Google Cloud Functions</li>
                         <li>Establecí pipelines CI/CD automáticos con AWS CodePipeline y Google Cloud Build</li>
                         <li>Lideré equipo de desarrollo estableciendo arquitecturas técnicas cloud-native</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item">
-                    <h4>Desarrollador Full-Stack Senior</h4>
-                    <div class="company">Manifest Solutions / CAS.org</div>
-                    <div class="period">Marzo 2022 – Marzo 2023</div>
-                    <ul>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="xp-item">
+                    <div class="xp-job">
+                      Desarrollador Full-Stack Senior
+                      <span>@ Manifest Solutions / CAS.org</span><br/><small>Bogotá, Colombia</small>
+                    </div>
+                    <div class="xp-date">Mar. 2022 – Mar. 2023</div>
+                    <div class="xp-detail">
+                      <ul>
                         <li>Desarrollé aplicaciones Java robustas para Chemical Abstracts Service (CAS)</li>
                         <li>Implementé migraciones AWS Cloud con CDK/SDK para modernización de sistemas legacy</li>
                         <li>Escribí pruebas unitarias comprensivas con JUnit y pruebas E2E con Ruby</li>
                         <li>Containerizé aplicaciones con Docker para despliegues consistentes</li>
                         <li>Trabajé con MongoDB para gestión de datos científicos a gran escala</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item">
-                    <h4>Desarrollador Senior Java</h4>
-                    <div class="company">Software Builders Ltda</div>
-                    <div class="period">Abril 2010 – Diciembre 2021</div>
-                    <ul>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="xp-item">
+                    <div class="xp-job">
+                      Desarrollador Senior Java
+                      <span>@ Software Builders Ltda</span><br/><small>Bogotá, Colombia</small>
+                    </div>
+                    <div class="xp-date">Abr. 2010 – Dic. 2021</div>
+                    <div class="xp-detail">
+                      <ul>
                         <li>Desarrollé aplicaciones Java robustas para web, escritorio y móviles (Android/iOS)</li>
                         <li>Lideré revisiones de código y estimaciones técnicas (desde 2015)</li>
                         <li>Diseñé aplicaciones full-stack con arquitecturas escalables</li>
                         <li>Implementé aplicaciones RESTful con Spring Boot</li>
                         <li>Proporcioné dirección técnica y experiencia en arquitectura de sistemas</li>
-                        <li>Serví como SME de Java y punto de contacto para gestión de proyectos</li>
-                    </ul>
-                </div>
-
-                <div class="experience-item">
-                    <h4>Desarrollador Web Full-Stack</h4>
-                    <div class="company">Foonkie Monkey</div>
-                    <div class="period">Septiembre 2016 – Diciembre 2021</div>
-                    <ul>
-                        <li>Desarrollé soluciones móviles iOS robustas como SME</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="xp-item">
+                    <div class="xp-job">
+                      Desarrollador Senior de Soluciones Cloud y Líder Técnico
+                      <span>@ RevStar Consulting</span><br/><small>Bogotá, Colombia</small>
+                    </div>
+                    <div class="xp-date">Oct. 2021 – Jul. 2023</div>
+                    <div class="xp-detail">
+                      <ul>
+                        <li>Establecí plantillas fundamentales para proyectos AWS Cloud</li>
+                        <li>Lideré creación de templates base asegurando consistencia y escalabilidad</li>
+                        <li>Mentoré líderes técnicos en diferentes equipos de proyecto</li>
+                        <li>Implementé AWS Lambda, Fargate, SQS, S3 en múltiples proyectos</li>
+                        <li>Promovì adopción de mejores prácticas: SonarQube, metodologías Ágiles, GraphQL</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="xp-item">
+                    <div class="xp-job">
+                      Desarrollador Full-Stack Senior
+                      <span>@ Ebizont Ltda</span><br/><small>Bogotá, Colombia</small>
+                    </div>
+                    <div class="xp-date">Ene. 2021 – Jul. 2021</div>
+                    <div class="xp-detail">
+                      <ul>
+                        <li>Desarrollé plataforma de webinars con Laravel PHP</li>
+                        <li>Implementé interfaces de usuario y funcionalidades backend</li>
+                        <li>Integré herramientas de comunicación en tiempo real y pasarelas de pago</li>
+                        <li>Optimicé rendimiento y confiabilidad de la plataforma</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="xp-item">
+                    <div class="xp-job">
+                      Desarrollador Web Full-Stack
+                      <span>@ Foonkie Monkey</span><br/><small>Bogotá, Colombia</small>
+                    </div>
+                    <div class="xp-date">Sep. 2016 – Dic. 2021</div>
+                    <div class="xp-detail">
+                      <ul>
+                        <li>Desarrollé soluciones móviles iOS robustas como SME (Subject Matter Expert)</li>
                         <li>Implementé aplicaciones Java RESTful con Spring Boot y Micronaut</li>
                         <li>Colaboré en equipos Ágiles para desarrollo de productos</li>
                         <li>Mantuve aplicaciones existentes y desarrollé nuevas funcionalidades</li>
-                    </ul>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="xp-item">
+                    <div class="xp-job">
+                      Desarrollador Web Full-Stack
+                      <span>@ Cesvi Colombia</span><br/><small>Bogotá, Colombia</small>
+                    </div>
+                    <div class="xp-date">Sep. 2018 – Dic. 2021</div>
+                    <div class="xp-detail">
+                      <ul>
+                        <li>Desarrollé aplicaciones móviles Android/iOS nativas</li>
+                        <li>Creé aplicaciones web React y aplicaciones .NET</li>
+                        <li>Gestioné ciclo completo desde investigación hasta deployment</li>
+                        <li>Proporcioné soporte post-lanzamiento y resolución de problemas</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
+              </section>
             </div>
-
-            <div class="section">
-                <h3>Educación</h3>
-                
-                <div class="education-item">
-                    <h4>Ingeniero Telemático</h4>
-                    <div class="institution">Universidad Distrital Francisco José de Caldas</div>
-                    <div class="year">2017 | Redes de Computadores y Telecomunicaciones</div>
+            <div class="resume__side">
+              <section class="resume__section resume__skills">
+                <div class="resume__content">
+                  <div class="resume__section-title">
+                    <i class="fa fa-align-center"></i>
+                    <h2>Habilidades</h2>
+                  </div>
+                  <div class="resume__text">
+                    <div class="extra">
+                      <div class="extra-info">Java/J2EE<br/><small>Spring Boot · Hibernate · Microservicios</small></div>
+                      <div class="extra-details">
+                        <div class="extra-details__progress" style="width:95%"></div>
+                      </div>
+                    </div>
+                    <div class="extra">
+                      <div class="extra-info">Python<br/><small>Django · Flask · FastAPI · ML</small></div>
+                      <div class="extra-details">
+                        <div class="extra-details__progress" style="width:90%"></div>
+                      </div>
+                    </div>
+                    <div class="extra">
+                      <div class="extra-info">JavaScript/TypeScript<br/><small>React · React Native · Node.js</small></div>
+                      <div class="extra-details">
+                        <div class="extra-details__progress" style="width:92%"></div>
+                      </div>
+                    </div>
+                    <div class="extra">
+                      <div class="extra-info">Desarrollo Móvil<br/><small>Android · iOS · Flutter</small></div>
+                      <div class="extra-details">
+                        <div class="extra-details__progress" style="width:88%"></div>
+                      </div>
+                    </div>
+                    <div class="extra">
+                      <div class="extra-info">DevOps & Cloud<br/><small>AWS · GCP · Docker · Kubernetes</small></div>
+                      <div class="extra-details">
+                        <div class="extra-details__progress" style="width:85%"></div>
+                      </div>
+                    </div>
+                    <div class="extra">
+                      <div class="extra-info">Bases de Datos<br/><small>MySQL · PostgreSQL · MongoDB</small></div>
+                      <div class="extra-details">
+                        <div class="extra-details__progress" style="width:90%"></div>
+                      </div>
+                    </div>
+                    <div class="extra">
+                      <div class="extra-info">Inteligencia Artificial<br/><small>TensorFlow · PyTorch · NLP</small></div>
+                      <div class="extra-details">
+                        <div class="extra-details__progress" style="width:80%"></div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                
-                <div class="education-item">
-                    <h4>Tecnólogo en Sistematización de Datos</h4>
-                    <div class="institution">Universidad Distrital Francisco José de Caldas</div>
-                    <div class="year">2014 | Ciencias de la Computación y Programación</div>
+              </section>
+              <section class="resume__section resume__languages">
+                <div class="resume__content">
+                  <div class="resume__section-title">
+                    <i class="fa fa-globe"></i>
+                    <h2>Idiomas</h2>
+                  </div>
+                  <div class="extra">
+                    <div class="extra-info">Español <small>(nativo)</small></div>
+                    <div class="extra-details">
+                      <div class="extra-details__progress" style="width:100%"></div>
+                    </div>
+                  </div>
+                  <div class="extra">
+                    <div class="extra-info">Inglés <small>(intermedio)</small></div>
+                    <div class="extra-details">
+                      <div class="extra-details__progress" style="width:70%"></div>
+                    </div>
+                  </div>
                 </div>
-                
-                <div class="education-item">
-                    <h4>Certificación CCNA</h4>
-                    <div class="institution">Cisco Networking Academy</div>
-                    <div class="year">2007 | Redes de Computadores y Telecomunicaciones</div>
+              </section>
+              <section class="resume__section resume__education">
+                <div class="resume__content">
+                  <div class="resume__section-title">
+                    <i class="fa fa-graduation-cap"></i>
+                    <h2>Educación</h2>
+                  </div>
+                  <div class="extra">
+                    <div class="extra-info">
+                      <b>Ingeniero Telemático</b><br/>
+                      <small>Universidad Distrital Francisco José de Caldas</small><br/>
+                      <small style="color: #5695cd;">2017</small>
+                    </div>
+                  </div>
+                  <div class="extra">
+                    <div class="extra-info">
+                      <b>Tecnólogo en Sistematización de Datos</b><br/>
+                      <small>Universidad Distrital Francisco José de Caldas</small><br/>
+                      <small style="color: #5695cd;">2014</small>
+                    </div>
+                  </div>
+                  <div class="extra">
+                    <div class="extra-info">
+                      <b>Certificación CCNA</b><br/>
+                      <small>Cisco Networking Academy</small><br/>
+                      <small style="color: #5695cd;">2007</small>
+                    </div>
+                  </div>
                 </div>
+              </section>
+              <section class="resume__section resume__certifications">
+                <div class="resume__content">
+                  <div class="resume__section-title">
+                    <i class="fa fa-certificate"></i>
+                    <h2>Certificaciones</h2>
+                  </div>
+                  <div class="extra">
+                    <div class="extra-info">
+                      <b>GDPR Foundations</b><br/>
+                      <small>Measured Collective</small><br/>
+                      <small style="color: #5695cd;">2025</small>
+                    </div>
+                  </div>
+                  <div class="extra">
+                    <div class="extra-info">
+                      <b>CCNA</b><br/>
+                      <small>Cisco Systems</small><br/>
+                      <small style="color: #5695cd;">2007</small>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <section class="resume__section resume__competencies">
+                <div class="resume__content">
+                  <div class="resume__section-title">
+                    <i class="fa fa-users"></i>
+                    <h2>Competencias Adicionales</h2>
+                  </div>
+                  <div class="extra">
+                    <div class="extra-info">
+                      <b>Liderazgo</b><br/>
+                      <small>8+ años de experiencia en liderazgo técnico desde 2015, incluyendo mentoría de desarrolladores, coordinación de arquitecturas técnicas y gestión de equipos multifuncionales.</small>
+                    </div>
+                  </div>
+                  <div class="extra">
+                    <div class="extra-info">
+                      <b>Comunicación</b><br/>
+                      <small>Excelentes habilidades de comunicación que me permiten colaborar efectivamente con clientes, stakeholders y equipos multifuncionales para entregar resultados de alta calidad.</small>
+                    </div>
+                  </div>
+                  <div class="extra">
+                    <div class="extra-info">
+                      <b>Información Personal</b><br/>
+                      <small><b>Ubicación:</b> Bogotá, Colombia<br/>
+                      <b>Idiomas:</b> Español (nativo), Inglés (intermedio)<br/>
+                      <b>Edad:</b> 36 años</small>
+                    </div>
+                  </div>
+                </div>
+              </section>
             </div>
-
-            <div class="section">
-                <h3>Certificaciones</h3>
-                <div class="certifications">
-                    <div class="cert-item">
-                        <span class="cert-year">2025</span>
-                        <strong>GDPR Foundations</strong><br>
-                        Measured Collective
-                    </div>
-                    <div class="cert-item">
-                        <span class="cert-year">2007</span>
-                        <strong>CCNA</strong><br>
-                        Cisco Systems
-                    </div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h3>Competencias Adicionales</h3>
-                <div class="competencies">
-                    <div class="competency-item">
-                        <h4>Liderazgo</h4>
-                        <p>8+ años de experiencia en liderazgo técnico desde 2015, incluyendo mentoría de desarrolladores, coordinación de arquitecturas técnicas y gestión de equipos multifuncionales.</p>
-                    </div>
-                    <div class="competency-item">
-                        <h4>Comunicación</h4>
-                        <p>Excelentes habilidades de comunicación que me permiten colaborar efectivamente con clientes, stakeholders y equipos multifuncionales para entregar resultados de alta calidad.</p>
-                    </div>
-                    <div class="competency-item">
-                        <h4>Información Personal</h4>
-                        <p><strong>Ubicación:</strong> Bogotá, Colombia<br>
-                        <strong>Idiomas:</strong> Español (nativo), Inglés (intermedio)<br>
-                        <strong>Edad:</strong> 36 años</p>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-    </div>
-
-    <button class="print-button" onclick="window.print()">🖨️ Imprimir PDF</button>
-
-    <script>
-        // Smooth scrolling for any internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Print functionality
-        window.addEventListener('beforeprint', function() {
-            document.body.style.fontSize = '12px';
-        });
-
-        window.addEventListener('afterprint', function() {
-            document.body.style.fontSize = '';
-        });
-    </script>
+      </div>
+    </body>
+  </html>
 </body>
 </html>
